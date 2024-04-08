@@ -58,7 +58,7 @@ function firstMovie (first){
 
 // FUNCTION LIST ALL MOVIE TITLES ON THE LEFT SIDE
 function getTitles (){
-    fetch ('http://localhost:3000/films')
+    fetch ('https://json-server-wg55.onrender.com/films')
     .then(res => res.json())
     .then(movies =>{ movies.forEach(movie => {
         let li = document.createElement('li');
@@ -98,7 +98,7 @@ function purchaseTickets(purchase){
             console.log(remTickets)
 
         // UPDATING THE TICKET SOLD 
-            fetch(`http://localhost:3000/films/${purchase.id}`, {
+            fetch(`https://json-server-wg55.onrender.com/films/${purchase.id}`, {
                 method : 'PATCH',
                 headers:{
                     'Content-Type':'application/json',
@@ -124,7 +124,7 @@ function purchaseTickets(purchase){
          }
         }
         // POSTING TICKETS BOUGHT
-        fetch('http://localhost:3000/tickets',{
+        fetch('https://json-server-wg55.onrender.com/tickets',{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
@@ -140,7 +140,7 @@ function purchaseTickets(purchase){
 function deleteMovie(movie){
     const deleteBtn = document.getElementById(`D${movie.id}`)
     deleteBtn.addEventListener('click',()=>{
-        fetch(`http://localhost:3000/films/${movie.id}`,{
+        fetch(`https://json-server-wg55.onrender.com/films/${movie.id}`,{
             method :'DELETE',
             headers:{
                 'Content-Type': 'application/json'
